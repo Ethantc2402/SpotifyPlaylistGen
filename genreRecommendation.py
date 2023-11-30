@@ -54,7 +54,7 @@ if __name__ == "__main__":
     spotify_data = pd.read_csv('SpotifyPlaylistGen\spotify_data.csv')
 
     # take user input for the song name
-    user_input = input("Enter the name of a song in the CSV file: ")
+    user_input = input("Enter the name of a song from spotify: ")
 
     # set up Spotify API credentials
     # to set up your own credentials, go to https://developer.spotify.com/dashboard/
