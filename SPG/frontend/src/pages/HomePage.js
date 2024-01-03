@@ -5,7 +5,8 @@ import { Link, useHistory } from "react-router-dom";
 const HomePage = () => {
   let history = useHistory();
   useEffect(() => {
-    fetch('/api/user-in-room').then(res => res.json()).then(data => {
+    const userAuthUrl = '/api/user-in-room';
+    fetch(userAuthUrl).then(res => res.json()).then(data => {
       if(data.code) {
         history.push(`/room/${data.code}`);
       }

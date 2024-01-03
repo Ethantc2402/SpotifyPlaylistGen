@@ -3,13 +3,16 @@ import { Button, Grid, Typography, TextField, FormHelperText, FormControl, Radio
 import { Link, useHistory } from "react-router-dom";
 
 const CreateRoomPage = () => {
+  const defaultProps = {
+    votesToSkip: 2,
+    guestCanPause: true,
+  }
   let history = useHistory();
-  const defaultVotes = 2;
-  const [guestCanPause, setGuestCanPause] = useState(true);
-  const [votesToSkip, setVotesToSkip] = useState(defaultVotes);
+  const [guestCanPause, setGuestCanPause] = useState(defaultProps.guestCanPause);
+  const [votesToSkip, setVotesToSkip] = useState(defaultProps.votesToSkip);
 
   const handleRoomButtonPressed = () => {
-    console.log(votesToSkip);
+    const createRoomURL = '/api/create-room';
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,7 +21,7 @@ const CreateRoomPage = () => {
         guest_can_pause: guestCanPause,
       }),
     };
-    fetch("/api/create-room", requestOptions)
+    fetch(createRoomURL, requestOptions)
       .then((response) => response.json())
       .then((data) => history.push(`/room/${data.code}`));
   }
@@ -60,7 +63,7 @@ const CreateRoomPage = () => {
             required={true}
             type="number"
             onChange={(e) => setVotesToSkip(e.target.value)}
-            defaultValue={defaultVotes}
+            defaultValue={defaultProps.votesToSkip}
             inputProps={{
               min: 1,
               style: { textAlign: "center" },

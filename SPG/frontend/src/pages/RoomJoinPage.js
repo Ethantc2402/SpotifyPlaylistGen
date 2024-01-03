@@ -12,6 +12,7 @@ const RoomJoinPage = () => {
     }
 
     const joinRoom = () => {
+        const joinRoomUrl = '/api/join-room';
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -19,9 +20,10 @@ const RoomJoinPage = () => {
                 code: roomCode
             })
         };
-        fetch('/api/join-room', requestOptions).then((res) => {
+        fetch(joinRoomUrl, requestOptions).then((res) => {
+            const roomUrl = `/room/${roomCode}`;
             if(res.ok) {
-                history.push(`/room/${roomCode}`);
+                history.push(roomUrl);
             } else {
                 setError("Room not found.");
                 setRoomCode("");
