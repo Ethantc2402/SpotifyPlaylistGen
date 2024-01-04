@@ -1,11 +1,11 @@
-HOW TO RUN
+# HOW TO RUN
 
 download files into VS code
 open VS code terminal
 type: python app.py
 open local host to view: http://127.0.0.1:5000
 
-WHAT DOES "SECTION ANALYSIS" MEAN
+# WHAT DOES "SECTION ANALYSIS" MEAN
 
 "segment analysis" breaks a song into very small segments. A segment is a musical unit within a track, often comprising a few musical bars. A segment has the same timbre, loudness, and pitches, and different segments have different metrics for them.
 
