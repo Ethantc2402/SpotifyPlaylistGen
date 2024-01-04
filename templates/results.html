@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Features Results</title>
+</head>
+<body>
+    <h1>Audio Features</h1>
+    {% if features %}
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+            {% for segment in features %}
+                <tr><td>Start</td><td>{{ segment['start'] }}</td></tr>
+                <tr><td>Duration</td><td>{{ segment['duration'] }}</td></tr>
+                <tr><td>Confidence</td><td>{{ segment['confidence'] }}</td></tr>
+                <tr><td>Loudness Start</td><td>{{ segment['loudness_start'] }}</td></tr>
+                <tr><td>Loudness Max Time</td><td>{{ segment['loudness_max_time'] }}</td></tr>
+                <tr><td>Loudness Max</td><td>{{ segment['loudness_max'] }}</td></tr>
+                <tr><td>Loudness End</td><td>{{ segment['loudness_end'] }}</td></tr>
+                <tr><td>Pitches</td><td>{{ segment['pitches'] }}</td></tr>
+                <tr><td>Timbre</td><td>{{ segment['timbre'] }}</td></tr>
+                <tr><td colspan="2">-----</td></tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No audio features found for this track.</p>
+    {% endif %}
+    <a href="/">Back to search</a>
+</body>
+</html>
