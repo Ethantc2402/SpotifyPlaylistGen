@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Sections Results</title>
+</head>
+<body>
+    <h1>Audio Sections</h1>
+    {% if features %}
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+            {% for section in features %}
+                <tr><td>Section start (s)</td><td>{{ section['start'] }}</td></tr>
+                <tr><td>Section duration (s)</td><td>{{ section['duration'] }}</td></tr>
+                <tr><td>Confidence (0 to 1)</td><td>{{ section['confidence'] }}</td></tr>
+                <tr><td>Loudness (dB)</td><td>{{ section['loudness'] }}</td></tr>
+                <tr><td>Tempo (BPM)</td><td>{{ section['tempo'] }}</td></tr>
+                <tr><td>Tempo Confidence (0 to 1) </td><td>{{ section['tempo_confidence'] }}</td></tr>
+                <tr><td>Key (0 to 11)</td><td>{{ section['key'] }}</td></tr>
+                <tr><td>Key Confidence (0 to 1)</td><td>{{ section['key_confidence'] }}</td></tr>
+                <tr><td>Mode (-1, 0, 1)</td><td>{{ section['mode'] }}</td></tr>
+                <tr><td>Mode Confidence (0 to 1)</td><td>{{ section['mode_confidence'] }}</td></tr>
+                <tr><td>Time Signature (3 to 7)</td><td>{{ section['time_signature'] }}</td></tr>
+                <tr><td>Time Sig Confidence (0 to 1) </td><td>{{ section['time_signature_confidence'] }}</td></tr>
+                <tr><td colspan="2">-----</td></tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No audio sections found for this track.</p>
+    {% endif %}
+    <a href="/">Back to search</a>
+</body>
+</html>
