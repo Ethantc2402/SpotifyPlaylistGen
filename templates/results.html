@@ -20,9 +20,19 @@
                 <tr><td>Loudness Start</td><td>{{ segment['loudness_start'] }}</td></tr>
                 <tr><td>Loudness Max Time</td><td>{{ segment['loudness_max_time'] }}</td></tr>
                 <tr><td>Loudness Max</td><td>{{ segment['loudness_max'] }}</td></tr>
-                <tr><td>Loudness End</td><td>{{ segment['loudness_end'] }}</td></tr>
-                <tr><td>Pitches</td><td>{{ segment['pitches'] }}</td></tr>
-                <tr><td>Timbre</td><td>{{ segment['timbre'] }}</td></tr>
+                <!-- <tr><td>Loudness End</td><td>{{ segment['loudness_end'] }}</td></tr> -->
+                <tr>
+                    <td>Pitch</td>
+                    <td>
+                        {% set notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'] %}
+                        {% for pitch in segment['pitches'] %}
+                            {% if pitch == 1.0 %}
+                                {{ notes[loop.index0] }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+                <!-- <tr><td>Timbre</td><td>{{ segment['timbre'] }}</td></tr> -->
                 <tr><td colspan="2">-----</td></tr>
             {% endfor %}
         </table>

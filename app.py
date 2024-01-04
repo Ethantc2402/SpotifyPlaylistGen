@@ -26,6 +26,9 @@ def get_audio_features(artist_name, track_name):
     # Fetch audio analysis data
     audio_analysis = sp.audio_analysis(track_id)
 
+
+    # overall_features = sp.audio_features(track_id)[0]
+
     # Extract features for all segments
     features = []
     for segment in audio_analysis['segments']:
