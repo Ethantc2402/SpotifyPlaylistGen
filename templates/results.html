@@ -14,13 +14,13 @@
                 <th>Value</th>
             </tr>
             {% for segment in features %}
-                <tr><td>Start</td><td>{{ segment['start'] }}</td></tr>
-                <tr><td>Duration</td><td>{{ segment['duration'] }}</td></tr>
-                <tr><td>Confidence</td><td>{{ segment['confidence'] }}</td></tr>
-                <tr><td>Loudness Start</td><td>{{ segment['loudness_start'] }}</td></tr>
-                <tr><td>Loudness Max Time</td><td>{{ segment['loudness_max_time'] }}</td></tr>
-                <tr><td>Loudness Max</td><td>{{ segment['loudness_max'] }}</td></tr>
-                <!-- <tr><td>Loudness End</td><td>{{ segment['loudness_end'] }}</td></tr> -->
+                <tr><td>Start (s)</td><td>{{ segment['start'] }}</td></tr>
+                <tr><td>Duration (s) </td><td>{{ segment['duration'] }}</td></tr>
+                <tr><td>Confidence (0 to 1)</td><td>{{ segment['confidence'] }}</td></tr>
+                <tr><td>Loudness Start (s)</td><td>{{ segment['loudness_start'] }}</td></tr>
+                <tr><td>Loudness Max Time (s)</td><td>{{ segment['loudness_max_time'] }}</td></tr>
+                <tr><td>Loudness Max (dB)</td><td>{{ segment['loudness_max'] }}</td></tr>
+                <tr><td>Loudness End</td><td>{{ segment['loudness_end'] }}</td></tr>
                 <tr>
                     <td>Pitch</td>
                     <td>
@@ -32,7 +32,7 @@
                         {% endfor %}
                     </td>
                 </tr>
-                <!-- <tr><td>Timbre</td><td>{{ segment['timbre'] }}</td></tr> -->
+                <tr><td>Timbre</td><td>{{ segment['timbre'] }}</td></tr>
                 <tr><td colspan="2">-----</td></tr>
             {% endfor %}
         </table>

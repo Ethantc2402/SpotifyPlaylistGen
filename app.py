@@ -26,12 +26,13 @@ def get_audio_features(artist_name, track_name):
     # Fetch audio analysis data
     audio_analysis = sp.audio_analysis(track_id)
 
-
-    # overall_features = sp.audio_features(track_id)[0]
-
     # Extract features for all segments
     features = []
+    
+
     for segment in audio_analysis['segments']:
+
+
         segment_features = {
             'start': segment['start'],
             'duration': segment['duration'],
@@ -41,11 +42,38 @@ def get_audio_features(artist_name, track_name):
             'loudness_max': segment['loudness_max'],
             'loudness_end': segment['loudness_end'],
             'pitches': segment['pitches'],
-            'timbre': segment['timbre']
+            'timbre': segment['timbre'],
+             
         }
         features.append(segment_features)
 
-    return features, None
+    # Iterate over each section in the audio_analysis
+    for section in audio_analysis['sections']:
+        # Extracting section attributes
+        section_data = {
+            'start': section['start'],
+            'duration': section['duration'],
+            'confidence': section['confidence'],
+            'loudness': section['loudness'],
+            'tempo': section['tempo'],
+            'tempo_confidence': section['tempo_confidence'],
+            'key': section['key'],
+            'key_confidence': section['key_confidence'],
+            'mode': section['mode'],
+            'mode_confidence': section['mode_confidence'],
+            'time_signature': section['time_signature'],
+            'time_signature_confidence': section['time_signature_confidence']
+        }
+        
+        # Append each section_data to the features list
+        features.append(section_data)
+
+        return features, None
+
+
+
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
