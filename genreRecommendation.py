@@ -84,54 +84,75 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
 # function to get the Spotify URL's for songs that are recommended based on genre
-def get_spotify_url(track_id, sp):
+def get_spotify_info(track_id, sp):
     track = sp.track(track_id)
-    return track['external_urls']['spotify']
+    audio_features = sp.audio_features([track_id])[0] # Retrieve audio features of the inputted song to get a relative tempo from
+    return track, audio_features
 
-def recommendByGenre(song_name, sp):
-    # querying the Spotify API to search for the input song
+def get_artist_id_by_genre(genre, sp):
+    results = sp.search(q=f'genre:"{genre}"', type='artist', limit=1)
+    if results['artists']['items']:
+        return results['artists']['items'][0]['id']
+    else:
+        return None
+
+def recommendByGenre_Tempo(song_name, genre, sp):
+    # Querying the Spotify API to search for the input song
     results = sp.search(q=song_name, type='track', limit=1)
 
-    # if the song was found, proceed with recommendations
+    # If the song was found, proceed with recommendations
     if results['tracks']['items']:
         input_track = results['tracks']['items'][0]
-        input_genre = input_track['artists'][0]['id']  # Assume the genre is based on the first artist of the track
 
-        # get top tracks in the same genre as the input song
-        recommendations = sp.recommendations(seed_artists=[input_genre], limit=10)
+        # Get tempo of the input track
+        _, input_audio_features = get_spotify_info(input_track['id'], sp)
+        input_tempo = input_audio_features['tempo']
 
-        print(recommendations)
+        # Get an artist ID associated with the desired genre
+        seed_artist = get_artist_id_by_genre(genre, sp)
 
-        # add a column for Spotify URLs
-        recommendations['spotify_url'] = [get_spotify_url(track['id'], sp) for track in recommendations['tracks']]
+        if seed_artist:
+            # Get top tracks with a target tempo using the obtained artist ID as seed
+            recommendations = sp.recommendations(seed_artists=[seed_artist], target_tempo=[input_tempo], limit=11)  # Increase limit by 1 to filter out the input track
 
+            # Filter out the input track from the recommendations
+            recommendations['tracks'] = [track for track in recommendations['tracks'] if track['id'] != input_track['id']]
 
-        return recommendations
+            # Take only the top 10 recommendations after filtering
+            recommendations = recommendations.head(10)
+
+            # Add a column for Spotify URLs
+            recommendations['spotify_url'] = [get_spotify_info(track['id'], sp)[0]['external_urls']['spotify'] for track in recommendations['tracks']]
+
+            return recommendations
+
+        else:
+            print(f"No artist found for the specified genre '{genre}'.")
+            return None
 
     else:
         print(f"No match found for the song '{song_name}'.")
         return None
 
 if __name__ == "__main__":
-    # take user input for the song name
+    # Take user input for the song name
     user_input = input("Enter the name of a song from Spotify: ")
 
-    # set up Spotify API credentials
-    # to set up your own credentials, go to https://developer.spotify.com/dashboard/
-    # get your id and secret and replace the values below
+    # Set up Spotify API credentials
     client_id = 'cf9550faad1b4d2f93b868511b7bebf2'
     client_secret = 'adc6e3b265824a4d8bcaee3da0a652e5'
     client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-    # get recommendations based on genre
-    recommendations = recommendByGenre(user_input, sp)
+    # Get recommendations based on genre and target tempo
+    recommendations = recommendByGenre_Tempo(user_input, sp)
 
-    # display recommendations including Spotify links
+    # Display recommendations including Spotify links
     if recommendations is not None:
-        print("\nTop 10 Recommendations Based on Genre:")
+        print("\nTop 10 Recommendations Based on Genre and Target Tempo:")
         for track in recommendations['tracks']:
             artists = ', '.join([artist['name'] for artist in track['artists']])
-            print(f"{track['name']} by {artists} (Popularity: {track['popularity']}, Artist Name: {track['artists'][0]['name']})")
+            print(f"{track['name']} by {artists} (Popularity: {track['popularity']}, Genre: {track['artists'][0]['name']})")
             print(f"Spotify Link: {track['external_urls']['spotify']}")
             print()
+
