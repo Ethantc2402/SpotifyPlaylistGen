@@ -2,6 +2,9 @@ import pandas as pd
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
+# Pretty much just gets the Top 10 most poplular songs in the same genre as 
+# the inputted song name
+
 # function to get the Spotify URL's for songs that are recommended based on genre
 def get_spotify_url(track_name, artist_name, sp):
     query = f"{track_name} {artist_name}"
