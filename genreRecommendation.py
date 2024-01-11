@@ -21,8 +21,16 @@ def recommendByGenre_Tempo(song_name, sp):
         _, input_audio_features = get_spotify_info(input_track['id'], sp)
         input_tempo = input_audio_features['tempo']
 
+        print("The input tempo in BPM is:", input_tempo)
+
         # Get top tracks in the same genre as the input song with a target tempo
-        recommendations = sp.recommendations(seed_artists=[input_genre], target_tempo=[input_tempo], limit=10)
+        recommendations = sp.recommendations(seed_artists=[input_genre], target_tempo=[input_tempo], limit=11)  # Increase limit by 1 to filter out the input track
+
+        # Filter out the input track from the recommendations
+        recommendations['tracks'] = [track for track in recommendations['tracks'] if track['id'] != input_track['id']]
+
+        # Take only the top 10 recommendations after filtering
+        recommendations['tracks'] = recommendations['tracks'][:10]
 
         # Add a column for Spotify URLs
         recommendations['spotify_url'] = [get_spotify_info(track['id'], sp)[0]['external_urls']['spotify'] for track in recommendations['tracks']]
@@ -32,6 +40,7 @@ def recommendByGenre_Tempo(song_name, sp):
     else:
         print(f"No match found for the song '{song_name}'.")
         return None
+
 
 
 
