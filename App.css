@@ -1,0 +1,123 @@
+body, html {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: #000000 !important;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.App {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.search-box .form-control {
+  border: 2px solid #fff;
+  border-radius: 0;
+  background: transparent;
+  color: #ffffff;
+  width: 100%;
+  max-width: 600px; /* Adjust based on your design */
+  margin: 0 auto;
+}
+
+.search-box .btn {
+  background-color: #ffffff;
+  color: #000;
+  border-radius: 20px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  font-size: 16px;
+  /* Override Bootstrap styles if needed */
+}
+
+/* .search-container {
+  text-align: center !important;
+} */
+
+
+
+.search-box {
+  border: none !important;
+  border-bottom: 2px solid #ffffff !important;
+  background: transparent !important;
+  color: #BFBFBF !important;
+  width: 450px !important;
+  font-size: 16px !important; /* Adjust the font size if necessary */
+  padding: 10px 0px !important; /* Reduce padding if the text is getting cut off */
+  margin-bottom: 20px !important;
+  height: 40px !important; /* Adjust height as needed to fit the text */
+  box-sizing: border-box !important; /* This ensures padding is included in the height */
+}
+
+.search-box::placeholder {
+  color: #BFBFBF !important;
+  overflow: hidden !important;
+  font-family: 'Lato', sans-serif !important;
+}
+
+.search-box:focus {
+  outline: none !important;
+}
+
+.generate-button {
+  font-family: 'Lato', sans-serif !important;
+  border: none !important;
+  padding: 10px 30px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  color: #000 !important;
+  background-color: #fff !important;
+  border-radius: 20px !important;
+  font-size: 16px !important;
+}
+
+.generate-button:hover {
+  background-color: #e6e6e6 !important;
+}
+
+.generate-button:active {
+  background-color: #ccc !important;
+}
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.track-item {
+  display: flex;
+  align-items: left;
+  margin-bottom: 10px;
+  color: #ffffff;
+  padding-left: 0;
+}
+
+.track-image {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  margin-right: 10px;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.track-title {
+  font-size: 16px; /* Adjust the font size if necessary */
+}
+
+.track-artist {
+  font-size: 14px; /* Adjust the font size if necessary */
+}
+
+.track-item.selected {
+  background-color: #1cc758; /* or any highlight color */
+  /* Add other styles to indicate selection if necessary */
+}
