@@ -1,0 +1,34 @@
+.slider {
+  padding: 2px 0px 2px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+}
+
+.slider-input {
+  background-color: inherit;
+}
+
+.type {
+  margin-top: 1px;
+}
+
+::-moz-range-track {
+  background: #fff;
+  width: 5px;
+  height: 163px;
+  border-radius: 1px;
+}
+
+::-moz-range-thumb {
+  background: #fff;
+  border: 0;
+  border-radius: 3px;
+  height: 18px;
+  width: 40px;
+}
+
+::-moz-range-thumb:hover {
+  cursor: pointer;
+}

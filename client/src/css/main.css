@@ -1,0 +1,9 @@
+#slider-container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+}
+
+main {
+  background-color: #555;
+}
