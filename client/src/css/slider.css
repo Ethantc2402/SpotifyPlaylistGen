@@ -1,34 +1,48 @@
-.slider {
-  padding: 2px 0px 2px 0px;
+.slidecontainer {
+  padding: 2px 2px 2px 2px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  width: 120px;
+  
 }
 
-.slider-input {
-  background-color: inherit;
+.slider {
+  -webkit-appearance: none;
+  width: 110%;
+  height: 5px;
+  background: white;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-top: 4rem;
+  transform: rotate(-90deg);
 }
 
-.type {
-  margin-top: 1px;
+.slider:hover {
+  opacity: 1;
 }
 
-::-moz-range-track {
-  background: #fff;
-  width: 5px;
-  height: 163px;
-  border-radius: 1px;
-}
-
-::-moz-range-thumb {
-  background: #fff;
-  border: 0;
-  border-radius: 3px;
-  height: 18px;
-  width: 40px;
-}
-
-::-moz-range-thumb:hover {
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; /* Adjust width */
+  height: 50px; /* Adjust height */
+  background: white;
   cursor: pointer;
+  border-radius: 5px; /* Remove border-radius to make it a rectangle */
+}
+
+.slider::-moz-range-thumb {
+  width: 20px; /* Adjust width */
+  height: 20px; /* Adjust height */
+  background: #4CAF50;
+  cursor: pointer;
+  border-radius: 0; /* Remove border-radius to make it a rectangle */
+}
+
+
+.slider::-webkit-slider-thumb:hover {
+  background: #4CAF50;
 }

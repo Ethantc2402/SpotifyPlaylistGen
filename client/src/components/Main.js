@@ -30,7 +30,14 @@ const Main = () => {
   };
 
   return (
-    <main>
+    <div className='main'>
+      <div className="container">
+        <h1>Spotify Playlist Generator</h1>
+        <h1 id="welcome">Welcome, [name]</h1>
+        <h2>Start creating your personalized playlist with any prompt!</h2>
+        <input id="prompt" placeholder="Enter your text here..." rows="4" cols="50" />
+        <p>(Optional)  Fine Tune Your Playlist</p>
+      </div>
       <form onSubmit={submitForm}>
         <div id="slider-container">
           <Slider type="Acousicness" range={[0, 1]} interval={"0.05"} />
@@ -42,7 +49,7 @@ const Main = () => {
         </div>
         <button type="submit">Generate Playlist</button>
       </form>
-    </main>
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "../css/slider.css";
 
 const Slider = ({ type, range, interval }) => {
@@ -10,11 +9,10 @@ const Slider = ({ type, range, interval }) => {
   };
 
   return (
-    <div className="slider">
+    <div className="slidecontainer">
       <input
         id={type}
-        className="slider-input"
-        orient="vertical"
+        className="slider"
         type="range"
         step={interval}
         min={range[0]}
