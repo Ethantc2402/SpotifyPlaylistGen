@@ -35,7 +35,7 @@ const Main = () => {
         <h1>Spotify Playlist Generator</h1>
         <h1 id="welcome">Welcome, [name]</h1>
         <h2>Start creating your personalized playlist with any prompt!</h2>
-        <input id="prompt" placeholder="Enter your text here..." rows="4" cols="50" />
+        <input id="prompt" placeholder="I’m going to the gym soon, give me a workout playlist…" rows="4" cols="50" />
         <p>(Optional)  Fine Tune Your Playlist</p>
       </div>
       <form onSubmit={submitForm}>
@@ -47,7 +47,7 @@ const Main = () => {
           <Slider type="Energy" range={[0, 1]} interval={"0.05"} />
           <Slider type="Mood/Valence" range={[0, 1]} interval={"0.05"} />
         </div>
-        <button type="submit">Generate Playlist</button>
+        <button id="generate" type="submit">Generate</button>
       </form>
     </div>
   );

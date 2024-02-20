@@ -1,5 +1,5 @@
 .slidecontainer {
-  padding: 2px 2px 2px 2px;
+  padding: 25px 30px 20px 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,14 +9,14 @@
 
 .slider {
   -webkit-appearance: none;
-  width: 110%;
+  width: 130%;
   height: 5px;
   background: white;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
-  margin-top: 4rem;
+  margin-top: 5rem;
   transform: rotate(-90deg);
 }
 
@@ -27,8 +27,8 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px; /* Adjust width */
-  height: 50px; /* Adjust height */
+  width: 25px; /* Adjust width */
+  height: 60px; /* Adjust height */
   background: white;
   cursor: pointer;
   border-radius: 5px; /* Remove border-radius to make it a rectangle */

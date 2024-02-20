@@ -6,7 +6,7 @@
   min-height: 100vh;
   padding: 0;
   margin: -0.51rem;
-  background: url("./blackbkg.png") no-repeat;
+  background: url("./Picture2.png") no-repeat;
   background-size: cover; /* Adjusts the background image to cover the entire container */
   background-position: center center;
   background-attachment: fixed;
@@ -16,6 +16,7 @@
 #welcome{
   text-align: center;
   font-weight: bold;
+  font-family: 'Lato Light', sans-serif;
 }
 
 .container{
@@ -27,33 +28,46 @@ h1 {
   margin-top: 0rem;
   margin-left: 1rem;
   text-align: left;
+  font-family: 'Lato Light', sans-serif;
+  
 }
 
 h2{
   text-align: center;
   font-family: 'Lato Light', sans-serif;
   font-weight: lighter;
+  font-size: 30px;
 }
 
 p {
   margin-bottom: 20px;
   text-align: center;
-  font-family: 'Lato light', sans-serif;
+  font-family: 'Lato Light', sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
 #prompt {
-  width: 80%; /* Adjust width as needed */
+  width: 45%; /* Adjust width as needed */
   padding: 10px;
-  border-radius: 50px; /* Set border radius */
+  background-color: transparent;
   border-color: white;
-  background-color: transparent; /* Set black background */
+  border-width: 3px;
+  border-radius: 50px; /* Set border radius */
   color: white; /* Set white text color */
   margin: 0 auto; /* Center horizontally */
   display: block;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+  background-image: url('./GPT.png'); /* Specify the path to your image */
+  background-position: right 10px center; /* Adjust position of the image */
+  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
+  padding-right: 45px;
 }
 
+::placeholder{
+  color: white
+}
 
 #slider-container {
   display: flex;
@@ -66,21 +80,34 @@ p {
 
 
 .type{
-  margin-top: 5.5rem;
+  margin-top: 7rem;
   font-weight: bold;
+  font-size: 18px;
   margin-bottom: 0.5rem;
 }
 
-
-button {
-  background-color: #40dc60; /* Button background color */
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+.slidecontainer:hover .type {
+  color: #34ad4c; /* Change the text color when sliders are being hovered */
 }
 
-button:hover {
+
+
+#generate {
+  background-color: white; /* Button background color */
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 2%;
+  margin-left: 58%;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace; /* Use a monospaced font */
+  width: 300px;
+}
+
+#generate:hover {
   background-color: #34ad4c; /* Button hover color */
+  color: white;
 }
