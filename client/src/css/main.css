@@ -66,7 +66,7 @@ p {
 }
 
 ::placeholder{
-  color: white
+  color: #BFBFBF !important; /* Placeholder color */
 }
 
 #slider-container {
@@ -90,6 +90,13 @@ p {
   color: #34ad4c; /* Change the text color when sliders are being hovered */
 }
 
+.searchContainer {
+  display: flex;
+  flex-direction: row; /* Arrange items in a row */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  margin-top: 20px; /* Adjust margin top as needed */
+}
 
 
 #generate {
@@ -99,12 +106,12 @@ p {
   padding: 10px 20px;
   border-radius: 2rem;
   cursor: pointer;
-  margin-top: 2%;
-  margin-left: 58%;
   font-size: 2rem;
+  margin-left: 6%;
   font-weight: bold;
   font-family: 'Courier New', Courier, monospace; /* Use a monospaced font */
   width: 300px;
+  
 }
 
 #generate:hover {

@@ -1,0 +1,158 @@
+/* Styling for the main application container */
+.App {
+  text-align: center; /* Center text within the container */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  padding-top: 40px; /* Add space at the top */
+}
+
+/* Styling for the search box and its elements */
+.search-box .form-control {
+  border: 2px solid #fff; /* White border for the input */
+  border-radius: 0; /* No border radius for a sharp look */
+  background: transparent; /* Transparent background */
+  color: #ffffff; /* White text color */
+  width: 100%; /* Full width of its container */
+  max-width: 600px; /* Max width to keep it contained */
+  margin: 0 auto; /* Center it horizontally */
+}
+
+/* Styling for the search button */
+.search-box .btn {
+  background-color: #ffffff; /* White background */
+  color: #000; /* Black text color */
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 30px; /* Padding for size */
+  text-transform: uppercase; /* Uppercase text */
+  font-size: 16px; /* Font size */
+}
+
+/* Container for the search functionality, ensuring centered text */
+.search-container {
+  text-align: center !important; /* Important to override any other styles */
+}
+
+/* Container for search results, with adjustments for layout and spacing */
+.results-container {
+  width: 100%; /* Full width */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+  margin-top: 20px; /* Space above the container */
+}
+
+/* Hover effect for the search button */
+.generate-button:hover {
+  background-color: #1e1e1e !important; /* Darker background on hover */
+  color: #333 !important; /* Dark text color on hover */
+  box-shadow: 0 2px 4px rgba(213, 213, 213, 0.2); /* Optional shadow for depth */
+}
+
+/* Hover effect for individual track items, indicating interactivity */
+.track-item:hover {
+  background-color: #292929 !important; /* Dark background on hover */
+  cursor: pointer !important; /* Change cursor to indicate clickable */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Shadow for depth */
+}
+
+/* Styles for selected track items, overriding hover styles for clarity */
+.track-item.selected, .track-item.selected:hover {
+  background-color: #1cc758 !important; /* Highlight color for selection */
+}
+
+/* Adjustments for the search box within the search-box class */
+.search-box {
+  border: none !important; /* Remove border */
+  border-bottom: 2px solid #ffffff !important; /* Bottom border for style */
+  background: transparent !important; /* Transparent background */
+  color: #BFBFBF !important; /* Placeholder and text color */
+  width: 450px !important; /* Adjusted width */
+  font-size: 16px !important; /* Font size */
+  padding: 10px 0px !important; /* Padding adjustment */
+  margin-bottom: 20px !important; /* Margin at the bottom */
+  height: 40px !important; /* Height of the input */
+  box-sizing: border-box !important; /* Include padding and border in height */
+}
+
+/* Style adjustments for the placeholder in the search box */
+.search-box::placeholder {
+  color: #BFBFBF !important; /* Placeholder color */
+  overflow: hidden !important; /* Prevent overflow */
+  font-family: 'Lato', sans-serif !important; /* Maintain font consistency */
+}
+
+/* Removes the outline around the input box when it is focused to enhance visual appearance */
+.search-box:focus {
+  outline: none !important;
+}
+
+/* Styles for the button used to initiate actions, e.g., generating content */
+.generate-button {
+  font-family: 'Lato', sans-serif !important; /* Sets a specific font for a consistent look */
+  border: none !important; /* Removes the default border */
+  padding: 10px 30px !important; /* Adds padding for better sizing and appearance */
+  text-transform: uppercase !important; /* Converts text to uppercase for a stylistic choice */
+  cursor: pointer !important; /* Changes cursor to pointer to indicate it's clickable */
+  color: #000 !important; /* Sets text color to black */
+  background-color: #fff !important; /* Sets background color to white */
+  border-radius: 20px !important; /* Rounds the corners for a smoother look */
+  font-size: 16px !important; /* Sets a specific font size */
+}
+
+/* Changes the button's background color on hover for visual feedback */
+.generate-button:hover {
+  background-color: #e6e6e6 !important;
+}
+
+/* Changes the button's background color when active/clicked for visual feedback */
+.generate-button:active {
+  background-color: #ccc !important;
+}
+
+/* Styles for the list that tracks items, setting its display and margin */
+.track-list {
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Arranges children in a column */
+  margin-top: 20px; /* Adds space above the list */
+}
+
+/* Styles for each track item, including alignment and spacing */
+.track-item {
+  display: flex; /* Uses flexbox for layout */
+  align-items: left; /* Aligns items to the left */
+  margin-bottom: 10px; /* Adds space below each item */
+  color: #ffffff; /* Sets text color to white */
+  padding-left: 0; /* Resets padding on the left */
+}
+
+/* Styles for the track image, including sizing and margin */
+.track-image {
+  width: 50px; /* Sets width of the image */
+  height: 50px; /* Sets height of the image */
+  margin-right: 10px; /* Adds space to the right of the image */
+}
+
+/* Styles for the container holding track information */
+.track-info {
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Arranges children in a column */
+  align-items: flex-start; /* Aligns items to the start (left) */
+}
+
+/* Styles for the track title text */
+.track-title {
+  font-size: 16px; /* Sets font size for titles */
+}
+
+/* Styles for the track artist text */
+.track-artist {
+  font-size: 14px; /* Sets font size for artist names */
+}
+
+/* Styles for a track item when it is selected, including background color */
+.track-item.selected {
+  background-color: #1cc758; /* Sets background color for selected items */
+  /* Additional styles can be added here to indicate selection */
+}
+

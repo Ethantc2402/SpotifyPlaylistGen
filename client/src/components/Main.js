@@ -1,4 +1,5 @@
 import Slider from "../components/Slider";
+import SearchEngine from "../components/searchEngine";
 import "../css/main.css";
 
 const sendFeatures = (features) => {
@@ -47,7 +48,10 @@ const Main = () => {
           <Slider type="Energy" range={[0, 1]} interval={"0.05"} />
           <Slider type="Mood/Valence" range={[0, 1]} interval={"0.05"} />
         </div>
-        <button id="generate" type="submit">Generate</button>
+        <div className="searchContainer">
+          <SearchEngine></SearchEngine>
+          <button id="generate" type="submit">Generate</button>
+        </div>
       </form>
     </div>
   );
