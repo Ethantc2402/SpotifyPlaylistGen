@@ -1,5 +1,7 @@
+import { useState } from "react";
+
 import Slider from "../components/Slider";
-import SearchEngine from "../components/searchEngine";
+import SearchEngine from "./SearchEngine";
 import "../css/main.css";
 
 const sendFeatures = (features) => {
@@ -16,30 +18,39 @@ const sendFeatures = (features) => {
 };
 
 const Main = () => {
+  const [trackIds, setTrackIds] = useState([]);
+
   const submitForm = (e) => {
     e.preventDefault();
     const sliderData = {};
 
     for (const slider of e.target.elements) {
-      if (slider.type === "range") {
+      if (slider.type !== "submit") {
         sliderData[slider.id] = slider.value;
       }
     }
 
+    sliderData["trackIds"] = trackIds;
     sendFeatures(sliderData);
     console.log(sliderData);
   };
 
   return (
-    <div className='main'>
-      <div className="container">
-        <h1>Spotify Playlist Generator</h1>
-        <h1 id="welcome">Welcome, [name]</h1>
-        <h2>Start creating your personalized playlist with any prompt!</h2>
-        <input id="prompt" placeholder="I’m going to the gym soon, give me a workout playlist…" rows="4" cols="50" />
-        <p>(Optional)  Fine Tune Your Playlist</p>
-      </div>
+    <div className="main">
       <form onSubmit={submitForm}>
+        <div className="container">
+          <h1>Spotify Playlist Generator</h1>
+          <h1 id="welcome">Welcome, [name]</h1>
+          <h2>Start creating your personalized playlist with any prompt!</h2>
+          <input
+            id="prompt"
+            placeholder="I’m going to the gym soon, give me a workout playlist…"
+            rows="4"
+            cols="50"
+          />
+          <p>(Optional) Fine Tune Your Playlist</p>
+        </div>
+
         <div id="slider-container">
           <Slider type="Acousicness" range={[0, 1]} interval={"0.05"} />
           <Slider type="Instrumentalness" range={[0, 1]} interval={"0.05"} />
@@ -49,8 +60,10 @@ const Main = () => {
           <Slider type="Mood/Valence" range={[0, 1]} interval={"0.05"} />
         </div>
         <div className="searchContainer">
-          <SearchEngine></SearchEngine>
-          <button id="generate" type="submit">Generate</button>
+          <SearchEngine setTrackIds={setTrackIds} />
+          <button id="generate" type="submit">
+            Generate
+          </button>
         </div>
       </form>
     </div>

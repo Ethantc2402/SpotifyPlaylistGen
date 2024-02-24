@@ -21,11 +21,15 @@
   transform: translate(-50%, -50%);
   width: 800px; /* Fixed width */
   height: 600px; /* Fixed height */
-  background-color: rgba(42, 41, 41, 0.5); /* Adjust the color and opacity as needed */
+  background-color: rgba(
+    42,
+    41,
+    41,
+    0.5
+  ); /* Adjust the color and opacity as needed */
   backdrop-filter: blur(1rem); /* Add a blur effect */
   border-radius: 10rem; /* Adjust the value as needed */
 }
-
 
 .title,
 .subtitle,
@@ -59,6 +63,6 @@
 }
 
 .login-button:hover {
-  background-color: black;
+  background-color: #1e1e1e;
   color: white;
 }

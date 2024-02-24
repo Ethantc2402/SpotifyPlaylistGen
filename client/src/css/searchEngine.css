@@ -1,5 +1,5 @@
 /* Styling for the main application container */
-.App {
+.search-engine-wrapper {
   text-align: center; /* Center text within the container */
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Stack children vertically */
