@@ -7,12 +7,12 @@ const CLIENT_ID = "8238ed5e942f4b289d5c0ba44bf2427b";
 const CLIENT_SECRET = "34ce0968afe74a29a655cd2c6f760ac9";
 
 // Main App component
-function SearchEngine({ setTrackIds }) {
+function SearchEngine({ setTrackId: setTrackId }) {
   // State hooks for managing component state
   const [searchInput, setSearchInput] = useState(""); // Stores the user's search input
   const [accessToken, setAccessToken] = useState(""); // Stores the Spotify API access token
   const [tracks, setTracks] = useState([]); // Stores the search results (tracks)
-  const [selectedTracks, setSelectedTracks] = useState(new Set()); // Tracks the user-selected tracks
+  const [selectedTrack, setSelectedTrack] = useState(""); // Tracks the user-selected tracks
 
   // useEffect hook to fetch the access token when the component mounts
   useEffect(() => {
@@ -61,23 +61,9 @@ function SearchEngine({ setTrackIds }) {
       });
   }
 
-  // Function to handle clicks on tracks, toggling their selection state
-  function handleTrackClick(trackId) {
-    setSelectedTracks((prevSelectedTracks) => {
-      const newSelectedTracks = new Set(prevSelectedTracks);
-      if (newSelectedTracks.has(trackId)) {
-        newSelectedTracks.delete(trackId);
-      } else {
-        newSelectedTracks.add(trackId);
-      }
-
-      return newSelectedTracks;
-    });
-  }
-
   useEffect(() => {
-    setTrackIds(Array.from(selectedTracks));
-  }, [selectedTracks]);
+    setTrackId(selectedTrack);
+  }, [selectedTrack]);
 
   return (
     <div className="App">
@@ -95,9 +81,9 @@ function SearchEngine({ setTrackIds }) {
           <div
             key={index}
             className={`track-item ${
-              selectedTracks.has(track.id) ? "selected" : ""
+              selectedTrack === track.id ? "selected" : ""
             }`}
-            onClick={() => handleTrackClick(track.id)}
+            onClick={() => setSelectedTrack(track.id)}
           >
             <img
               src={track.album.images[0].url}

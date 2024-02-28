@@ -18,7 +18,7 @@ const sendFeatures = (features) => {
 };
 
 const Main = () => {
-  const [trackIds, setTrackIds] = useState([]);
+  const [trackId, setTrackId] = useState("");
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const Main = () => {
       }
     }
 
-    sliderData["trackIds"] = trackIds;
+    sliderData["trackId"] = trackId;
     sendFeatures(sliderData);
     console.log(sliderData);
   };
@@ -60,7 +60,7 @@ const Main = () => {
           <Slider type="Mood/Valence" range={[0, 1]} interval={"0.05"} />
         </div>
         <div className="searchContainer">
-          <SearchEngine setTrackIds={setTrackIds} />
+          <SearchEngine setTrackId={setTrackId} />
           <button id="generate" type="submit">
             Generate
           </button>
