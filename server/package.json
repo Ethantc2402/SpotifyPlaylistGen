@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend for Spotify Playlist Generator",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "python -m uvicorn src.app:app --reload --port 8080"
+  },
+  "keywords": [],
+  "author": "Spotify Playlist Gen Team",
+  "license": "ISC"
+}

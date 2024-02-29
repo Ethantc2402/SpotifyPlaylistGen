@@ -32,7 +32,6 @@ const Main = () => {
 
     sliderData["trackId"] = trackId;
     sendFeatures(sliderData);
-    console.log(sliderData);
   };
 
   return (
@@ -52,7 +51,7 @@ const Main = () => {
         </div>
 
         <div id="slider-container">
-          <Slider type="Acousicness" range={[0, 1]} interval={"0.05"} />
+          <Slider type="Acousticness" range={[0, 1]} interval={"0.05"} />
           <Slider type="Instrumentalness" range={[0, 1]} interval={"0.05"} />
           <Slider type="Tempo" range={[60, 180]} interval={"1"} />
           <Slider type="Danceability" range={[0, 1]} interval={"0.05"} />

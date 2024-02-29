@@ -11,7 +11,7 @@ const Slider = ({ type, range, interval }) => {
   return (
     <div className="slidecontainer">
       <input
-        id={type}
+        id={type === "Mood/Valence" ? "mood_valence" : type.toLowerCase()}
         className="slider"
         type="range"
         step={interval}
