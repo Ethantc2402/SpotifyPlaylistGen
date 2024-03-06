@@ -13,13 +13,12 @@
   color: #fff; /* Text color */
 }
 
-#welcome{
+#welcome {
   text-align: center;
-  font-weight: bold;
-  font-family: 'Lato Light', sans-serif;
+  font-weight: 900;
 }
 
-.container{
+.container {
   margin-top: 0rem;
   padding: 20px;
 }
@@ -28,22 +27,18 @@ h1 {
   margin-top: 0rem;
   margin-left: 1rem;
   text-align: left;
-  font-family: 'Lato Light', sans-serif;
-  
 }
 
-h2{
+h2 {
   text-align: center;
-  font-family: 'Lato Light', sans-serif;
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 30px;
 }
 
 p {
   margin-bottom: 20px;
   text-align: center;
-  font-family: 'Lato Light', sans-serif;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1.5rem;
 }
 
@@ -51,22 +46,30 @@ p {
   width: 45%; /* Adjust width as needed */
   padding: 10px;
   background-color: transparent;
-  border-color: white;
-  border-width: 3px;
   border-radius: 50px; /* Set border radius */
   color: white; /* Set white text color */
   margin: 0 auto; /* Center horizontally */
   display: block;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 1.2rem;
-  background-image: url('./GPT.png'); /* Specify the path to your image */
+  background-image: url("./GPT.png"); /* Specify the path to your image */
   background-position: right 10px center; /* Adjust position of the image */
   background-repeat: no-repeat; /* Ensure the image doesn't repeat */
   padding-right: 45px;
+  border: 2px solid #e3e3e3;
 }
 
-::placeholder{
-  color: #BFBFBF !important; /* Placeholder color */
+#prompt:focus {
+  outline: none;
+}
+
+#prompt:hover {
+  border-color: #b3b3b3;
+  transition: all;
+  transition-duration: 0.3s;
+}
+
+::placeholder {
+  color: #bfbfbf !important; /* Placeholder color */
 }
 
 #slider-container {
@@ -78,10 +81,9 @@ p {
   width: fit-content; /* Adjusts width to fit its content */
 }
 
-
-.type{
+.type {
   margin-top: 7rem;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   margin-bottom: 0.5rem;
 }
@@ -93,11 +95,8 @@ p {
 .searchContainer {
   display: flex;
   flex-direction: row; /* Arrange items in a row */
-  align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
-  margin-top: 20px; /* Adjust margin top as needed */
 }
-
 
 #generate {
   background-color: white; /* Button background color */
@@ -106,12 +105,13 @@ p {
   padding: 10px 20px;
   border-radius: 2rem;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-left: 6%;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace; /* Use a monospaced font */
+  font-weight: 400;
   width: 300px;
-  
+  height: min-content;
+  transition: all;
+  transition-duration: 0.3s;
 }
 
 #generate:hover {
