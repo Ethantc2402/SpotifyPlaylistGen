@@ -20,7 +20,7 @@ const HomePage = () => {
   const handleLoginWithSpotify = () => {
     // Define your client ID and redirect URI
     const clientId = '52b7deed70ef4ae3bb2b4429ad67da13';
-    const redirectUri = 'http://127.0.0.1:3000/';
+    const redirectUri = 'http://127.0.0.1:3001/';
 
     // Define the scopes your application needs
     const scopes = [
